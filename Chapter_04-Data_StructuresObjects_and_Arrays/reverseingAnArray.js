@@ -6,6 +6,7 @@ Thinking back to the notes about side effects and pure functions in the previous
 
 // Your code here.
 */
+// Your code here.
 function reverseArray(array) {
   let reversedArray = [];
   for(let i = array.length - 1; i >= 0; i--) {
@@ -13,12 +14,17 @@ function reverseArray(array) {
   }
   return reversedArray;
 }
-
+function reverseArrayInPlace(array) {
+  let reversedArray = [];
+  for(let i = array.length - 1; i >= 0; i--) {
+    reversedArray.push(array.pop());
+  }
+  array = reversedArray.slice(0);
+  return array;
+}
 console.log(reverseArray(["A", "B", "C"]));
 // → ["C", "B", "A"];
 let arrayValue = [1, 2, 3, 4, 5];
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);
 // → [5, 4, 3, 2, 1]
-
-*/

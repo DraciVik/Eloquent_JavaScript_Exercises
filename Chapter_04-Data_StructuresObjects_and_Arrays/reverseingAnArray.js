@@ -5,6 +5,14 @@ Arrays have a reverse method which changes the array by inverting the order in w
 Thinking back to the notes about side effects and pure functions in the previous chapter, which variant do you expect to be useful in more situations? Which one runs faster?
 
 // Your code here.
+*/
+function reverseArray(array) {
+  let reversedArray = [];
+  for(let i = array.length - 1; i >= 0; i--) {
+    reversedArray.push(array[i]);
+  }
+  return reversedArray;
+}
 
 console.log(reverseArray(["A", "B", "C"]));
 // → ["C", "B", "A"];

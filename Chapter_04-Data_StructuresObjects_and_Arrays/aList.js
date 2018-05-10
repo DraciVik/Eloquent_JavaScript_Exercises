@@ -32,3 +32,11 @@ console.log(prepend(10, prepend(20, null)));
 console.log(nth(arrayToList([10, 20, 30]), 1));
 // → 20
 */
+
+function arrayToList(array) {
+  let list = null;
+  for(let i = 0; i < array.length; i++) {
+  	list = {value: array[i], list};
+  }
+  return list;
+}

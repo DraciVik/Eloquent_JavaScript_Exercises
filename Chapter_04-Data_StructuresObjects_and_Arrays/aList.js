@@ -40,3 +40,12 @@ function arrayToList(array) {
   }
   return list;
 }
+
+
+function listToArray(list) {
+  let array = [];
+  for (let part = list; part; part = part.rest) {
+    array.push(part.value);
+  }
+  return array;
+}

@@ -34,24 +34,23 @@ console.log(nth(arrayToList([10, 20, 30]), 1));
 */
 
 function arrayToList(array) {
-  let list = null;
-  for(let i = 0; i < array.length; i++) {
-  	list = {value: array[i], list};
-  }
-  return list;
+        let list = null;
+        for (let i = array.length - 1; i >= 0; i -= 1) {
+                list = { value: array[i], list };
+        }
+        return list;
 }
 
-
 function listToArray(list) {
-  let array = [];
-  for (let part = list; part; part = part.rest) {
-    array.push(part.value);
-  }
-  return array;
+        const array = [];
+        for (let part = list; part; part = part.rest) {
+                array.push(part.value);
+        }
+        return array;
 }
 
 function nth(list, n) {
-  if (!list) return undefined;
-  else if (n == 0) return list.value;
-  else return nth(list.rest, n - 1);
+        if (!list) return undefined;
+        if (n == 0) return list.value;
+        return nth(list.rest, n - 1);
 }

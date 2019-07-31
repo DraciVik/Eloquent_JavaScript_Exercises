@@ -14,3 +14,8 @@ console.log(every([2, 4, 16], n => n < 10));
 console.log(every([], n => n < 10));
 // → true
 */
+function loop(start, test, update, body) {
+        for (let value = start; test(value); value = update(value)) {
+                body(value);
+        }
+}

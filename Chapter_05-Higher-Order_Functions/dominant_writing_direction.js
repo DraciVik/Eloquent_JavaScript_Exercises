@@ -13,3 +13,22 @@ console.log(dominantDirection("Hey, مساء الخير"));
 // → rtl
 
 */
+
+function dominantDirection(text) {
+        const scripts = countBy(text, char => {
+                const script = characterScript(char.codePointAt(0));
+                return script ? script.direction : 'none';
+        }).filter(({ name }) => name != 'none');
+        let ltr = 0;
+        let rtl = 0;
+        for (const value of scripts) {
+                if (value.name === 'ltr') ltr += 1;
+                if (value.name === 'rtl') rtl += 1;
+        }
+        return ltr > rtl ? 'ltr' : 'rtl';
+}
+
+console.log(dominantDirection('Hello!'));
+// → ltr
+console.log(dominantDirection('Hey, مساء الخير'));
+// → rtl

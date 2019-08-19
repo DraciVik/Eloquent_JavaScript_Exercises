@@ -7,7 +7,31 @@
 // Give the class a static from method that takes an iterable object as argument and creates a group that contains all the values produced by iterating over it.
 
 class Group {
-        // Your code here.
+        constructor() {
+                this.members = [];
+        }
+
+        delete(value) {
+                this.members = this.members.filter(v => v !== value);
+        }
+
+        add(value) {
+                if (!this.has(value)) {
+                        this.members.push(value);
+                }
+        }
+
+        has(value) {
+                return this.members.includes(value);
+        }
+
+        static from(iterable) {
+                const group1 = new Group();
+                for (const key of iterable) {
+                        group1.add(key);
+                }
+                return group1;
+        }
 }
 
 const group = Group.from([10, 20]);
